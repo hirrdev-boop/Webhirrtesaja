@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPM Grup WA | Direktori Grup WhatsApp Indonesia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #075e54, #128c7e);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    .badge-cuan {
+      background: #fbbf24;
+      color: #1f2937;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    /* Kategori */
+    .kategori {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .kategori-btn {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .kategori-btn.active, .kategori-btn:hover {
+      background: #25d366;
+      color: #075e54;
+    }
+
+    /* Grid Grup */
+    .grid-grup {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .card-grup {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .card-grup:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .icon-grup {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .nama-grup {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #075e54;
+      margin-bottom: 5px;
+    }
+
+    .deskripsi {
+      color: #666;
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .btn-join {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .btn-join:hover {
+      background: #128c7e;
+      transform: scale(1.02);
+    }
+
+    /* Form tambah grup (untuk admin jual slot) */
+    .form-tambah {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .form-tambah h3 {
+      color: #075e54;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #25d366;
+    }
+
+    .btn-submit {
+      background: #075e54;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .alert {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      margin-top: 40px;
+      padding: 20px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .grid-grup {
+        grid-template-columns: 1fr;
+      }
+      .header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📱 JPM Grup WA Indonesia</h1>
+    <p>Tempat cari grup WhatsApp premium & jualan perbanyak member</p>
+    <div class="badge-cuan">💰 CUAN: Jual slot grup | Pasang Iklan | Jasa admin</div>
+  </div>
+
+  <!-- Filter Kategori -->
+  <div class="kategori">
+    <button class="kategori-btn active" data-kategori="semua">Semua Grup</button>
+    <button class="kategori-btn" data-kategori="bisnis">Bisnis & Jualan</button>
+    <button class="kategori-btn" data-kategori="investasi">Investasi & Crypto</button>
+    <button class="kategori-btn" data-kategori="edukasi">Edukasi & Kursus</button>
+    <button class="kategori-btn" data-kategori="hiburan">Hiburan & Komunitas</button>
+  </div>
+
+  <!-- Daftar Grup -->
+  <div class="grid-grup" id="daftarGrup"></div>
+
+  <!-- Form Jualan Slot Grup (Cuan) -->
+  <div class="form-tambah">
+    <h3>💸 Mau cuan? Pasang grup WhatsApp kamu di sini!</h3>
+    <div class="alert">
+      ⚠️ HANYA GRUP LEGAL & RAMAH. Dilarang grup spam, nsfw, atau melanggar aturan WhatsApp. Harga pasang: <strong>Rp75.000/bulan</strong> (via transfer atau saldo)
+    </div>
+    <form id="formGrup">
+      <div class="form-group">
+        <input type="text" id="namaGrup" placeholder="Nama Grup" required>
+      </div>
+      <div class="form-group">
+        <textarea id="deskripsiGrup" rows="2" placeholder="Deskripsi grup (contoh: tempat jualan pulsa, diskusi saham, dll)" required></textarea>
+      </div>
+      <div class="form-group">
+        <select id="kategoriGrup" required>
+          <option value="">Pilih Kategori</option>
+          <option value="bisnis">Bisnis & Jualan</option>
+          <option value="investasi">Investasi & Crypto</option>
+          <option value="edukasi">Edukasi & Kursus</option>
+          <option value="hiburan">Hiburan & Komunitas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="url" id="linkGrup" placeholder="Link Grup WhatsApp (contoh: https://chat.whatsapp.com/xxxx)" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="kontakAdmin" placeholder="Nomor WA admin (untuk verifikasi)" required>
+      </div>
+      <button type="submit" class="btn-submit">📢 Pasang Grup (Mulai Rp75rb/bulan)</button>
+    </form>
+    <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">*Setelah submit, tim kami akan verifikasi grup Anda dalam max 1x24 jam. Pembayaran via QRIS / transfer.</p>
+  </div>
+
+  <footer>
+    <p>© 2025 JPM Direktori Grup WA | Bukan aplikasi blast/spam, hanya direktori link grup | Cara cuan: jasa listing grup & iklan</p>
+  </footer>
+</div>
+
+<script>
+  // Data grup contoh (bisa ditambah lewat form nanti disimpan ke localStorage atau backend)
+  let grupData = [
+    {
+      id: 1,
+      nama: "Jualan Tanpa Modal 📦",
+      deskripsi: "Grup jualan reseller, dropship, affiliate. Dilarang spam!",
+      kategori: "bisnis",
+      anggota: "1.2k anggota",
+      link: "https://chat.whatsapp.com/K7sHd9fGq3LpQrStUvWxYz",
+      icon: "🛍️"
+    },
+    {
+      id: 2,
+      nama: "Saham & Crypto Indonesia",
+      deskripsi: "Diskusi saham, crypto, reksadana. Bukan grup pump and dump!",
+      kategori: "investasi",
+      anggota: "850 anggota",
+      link: "https://chat.whatsapp.com/BsYfVjHmNpLqRtWxZcVbNm",
+      icon: "📈"
+    },
+    {
+      id: 3,
+      nama: "Belajar AI & ChatGPT",
+      deskripsi: "Tutor AI, prompt engineering, cuan dari AI",
+      kategori: "edukasi",
+      anggota: "2.1k anggota",
+      link: "https://chat.whatsapp.com/LpQsRtWuXyZaBcDeFgHiJk",
+      icon: "🤖"
+    },
+    {
+      id: 4,
+      nama: "Komunitas Gamer Indo",
+      deskripsi: "Cari teman main ML, PUBG, Free Fire. Join yang aktif!",
+      kategori: "hiburan",
+      anggota: "3.4k anggota",
+      link: "https://chat.whatsapp.com/MnOpQrStUvWxYzAbCdEfGh",
+      icon: "🎮"
+    },
+    {
+      id: 5,
+      nama: "UMKM Go Online",
+      deskripsi: "Sharing strategi jualan online, WA blast legal, iklan FB",
+      kategori: "bisnis",
+      anggota: "950 anggota",
+      link: "https://chat.whatsapp.com/QwErTyUiOpAsDfGhJkLzXc",
+      icon: "🏪"
+    }
+  ];
+
+  let grupIdCounter = 6;
+
+  function renderGrup(filterKategori = "semua") {
+    const grid = document.getElementById("daftarGrup");
+    let filtered = grupData;
+    if (filterKategori !== "semua") {
+      filtered = grupData.filter(grup => grup.kategori === filterKategori);
+    }
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div style="text-align:center; padding:40px; background:white; border-radius:20px;">😢 Belum ada grup di kategori ini. Jadi yang pertama pasang grup kamu!</div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(grup => `
+      <div class="card-grup" data-kategori="${grup.kategori}">
+        <div class="icon-grup">${grup.icon}</div>
+        <div class="nama-grup">${escapeHtml(grup.nama)}</div>
+        <div class="deskripsi">${escapeHtml(grup.deskripsi)}</div>
+        <div class="info">
+          <span>👥 ${grup.anggota}</span>
+          <span>🏷️ ${grup.kategori.toUpperCase()}</span>
+        </div>
+        <button class="btn-join" onclick="window.open('${grup.link}', '_blank')">
+          🔗 Gabung Grup Sekarang
+        </button>
+      </div>
+    `).join('');
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  // Filter event
+  document.querySelectorAll('.kategori-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.kategori-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const kategori = this.getAttribute('data-kategori');
+      renderGrup(kategori);
+    });
+  });
+
+  // Form tambah grup (simpan ke localStorage + tampilkan)
+  const form = document.getElementById('formGrup');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nama = document.getElementById('namaGrup').value.trim();
+    const deskripsi = document.getElementById('deskripsiGrup').value.trim();
+    const kategori = document.getElementById('kategoriGrup').value;
+    const link = document.getElementById('linkGrup').value.trim();
+    const kontakAdmin = document.getElementById('kontakAdmin').value.trim();
+
+    if (!nama || !deskripsi || !kategori || !link || !kontakAdmin) {
+      alert("Harap isi semua data!");
+      return;
+    }
+
+    if (!link.includes("chat.whatsapp.com")) {
+      alert("Link grup WA harus dari https://chat.whatsapp.com/...");
+      return;
+    }
+
+    const grupBaru = {
+      id: grupIdCounter++,
+      nama: nama,
+      deskripsi: deskripsi,
+      kategori: kategori,
+      anggota: "Baru (0 member)",
+      link: link,
+      icon: "💬",
+      kontakAdmin: kontakAdmin,
+      status: "pending"
+    };
+
+    // Simpan di localStorage biar tidak hilang reload
+    let existing = JSON.parse(localStorage.getItem('jpmGrupCustom') || '[]');
+    existing.push(grupBaru);
+    localStorage.setItem('jpmGrupCustom', JSON.stringify(existing));
+
+    // Gabung data default + custom
+    const dataCustom = JSON.parse(localStorage.getItem('jpmGrupCustom') || '[]');
+    grupData = grupData.concat(dataCustom);
+    
+    renderGrup(document.querySelector('.kategori-btn.active').getAttribute('data-kategori'));
+    alert("✅ Grup terdaftar! Tim kami akan verifikasi dan hubungi WA admin untuk pembayaran listing Rp75.000/bulan");
+    form.reset();
+  });
+
+  // Load data custom dari localStorage
+  const savedCustom = JSON.parse(localStorage.getItem('jpmGrupCustom') || '[]');
+  grupData = grupData.concat(savedCustom);
+  
+  // Initial render
+  renderGrup("semua");
+</script>
+</body>
+</html>
